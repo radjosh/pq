@@ -20,12 +20,12 @@ func Constructor(minmax string) Pq {
 	return *pq
 }
 
-func (p *Pq) push(Value QueueElement) {
+func (p *Pq) Push(Value QueueElement) {
 	p.heap = append(p.heap, Value)
 	p.bubbleUp(len(p.heap) - 1)
 }
 
-func (p *Pq) pull() interface{} {
+func (p *Pq) Pull() interface{} {
 	if len(p.heap) == 0 {
 		return nil
 	}
