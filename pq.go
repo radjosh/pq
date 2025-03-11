@@ -1,8 +1,8 @@
 package pq
 
 type QueueElement struct {
-	priority int
-	value    any
+	Priority int
+	Value    any
 }
 
 type Pq struct {
@@ -20,8 +20,8 @@ func Constructor(minmax string) Pq {
 	return *pq
 }
 
-func (p *Pq) push(value QueueElement) {
-	p.heap = append(p.heap, value)
+func (p *Pq) push(Value QueueElement) {
+	p.heap = append(p.heap, Value)
 	p.bubbleUp(len(p.heap) - 1)
 }
 
@@ -43,13 +43,13 @@ func (p *Pq) bubbleDown(idx int) {
 		smallest := idx
 
 		if childIdx1 < len(p.heap) &&
-			p.heap[childIdx1].priority*p.minmax <
-				p.heap[smallest].priority*p.minmax {
+			p.heap[childIdx1].Priority*p.minmax <
+				p.heap[smallest].Priority*p.minmax {
 			smallest = childIdx1
 		}
 		if childIdx2 < len(p.heap) &&
-			p.heap[childIdx2].priority*p.minmax <
-				p.heap[smallest].priority*p.minmax {
+			p.heap[childIdx2].Priority*p.minmax <
+				p.heap[smallest].Priority*p.minmax {
 			smallest = childIdx2
 		}
 		if smallest == idx {
@@ -63,7 +63,7 @@ func (p *Pq) bubbleDown(idx int) {
 func (p *Pq) bubbleUp(idx int) {
 	for idx > 0 {
 		parentIdx := (idx - 1) / 2
-		if p.heap[parentIdx].priority*p.minmax > p.heap[idx].priority*p.minmax {
+		if p.heap[parentIdx].Priority*p.minmax > p.heap[idx].Priority*p.minmax {
 			p.heap[parentIdx], p.heap[idx] = p.heap[idx], p.heap[parentIdx]
 			idx = parentIdx
 		} else {
