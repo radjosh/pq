@@ -1,4 +1,4 @@
-package main
+package pq
 
 type QueueElement struct {
 	priority int
