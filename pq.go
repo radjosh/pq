@@ -20,8 +20,9 @@ func Constructor(minmax string) Pq {
 	return *pq
 }
 
-func (p *Pq) Push(Value QueueElement) {
-	p.heap = append(p.heap, Value)
+func (p *Pq) Push(priority int, value interface{}) {
+	qe := QueueElement{Priority: priority, Value: value}
+	p.heap = append(p.heap, qe)
 	p.bubbleUp(len(p.heap) - 1)
 }
 
