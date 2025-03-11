@@ -2,7 +2,7 @@ package pq
 
 type QueueElement struct {
 	Priority int
-	Value    any
+	Value    interface{}
 }
 
 type Pq struct {
@@ -25,7 +25,7 @@ func (p *Pq) push(Value QueueElement) {
 	p.bubbleUp(len(p.heap) - 1)
 }
 
-func (p *Pq) pull() any {
+func (p *Pq) pull() interface{} {
 	if len(p.heap) == 0 {
 		return nil
 	}
