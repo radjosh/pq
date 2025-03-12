@@ -10,14 +10,14 @@ type Pq struct {
 	minmax int
 }
 
-func Constructor(minmax string) Pq {
+func New(minmax string) *Pq {
 	pq := new(Pq)
 	if minmax == "max" {
 		pq.minmax = -1
 	} else {
 		pq.minmax = 1
 	}
-	return *pq
+	return pq
 }
 
 func (p *Pq) Push(priority int, value interface{}) {
