@@ -7,7 +7,7 @@ type QueueElement struct {
 
 type Pq struct {
 	heap   []QueueElement
-	minmax int
+	minmax int // whether this is a min-pq or max-pq
 }
 
 func New(minmax string) *Pq {
