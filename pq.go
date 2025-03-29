@@ -20,6 +20,10 @@ func New(minmax string) *Pq {
 	return pq
 }
 
+func (p *Pq) Length() int {
+	return len(p.heap)
+}
+
 func (p *Pq) Push(priority int, value interface{}) {
 	qe := QueueElement{Priority: priority, Value: value}
 	p.heap = append(p.heap, qe)
