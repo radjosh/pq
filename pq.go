@@ -30,7 +30,7 @@ func (p *Pq) Push(priority int, value interface{}) {
 	p.bubbleUp(len(p.Heap) - 1)
 }
 
-func (p *Pq) Pull() interface{} {
+func (p *Pq) Pull() QueueElement {
 	if len(p.Heap) == 0 {
 		return nil
 	}
@@ -39,7 +39,7 @@ func (p *Pq) Pull() interface{} {
 	p.Heap = p.Heap[:len(p.Heap)-1]
 	p.bubbleDown(0)
 	// return root
-	return root.Value
+	return root
 }
 
 func (p *Pq) bubbleDown(idx int) {
