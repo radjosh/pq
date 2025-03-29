@@ -6,8 +6,8 @@ type QueueElement struct {
 }
 
 type Pq struct {
-	heap   []QueueElement
-	minmax int // whether this is a min-pq or max-pq
+	Heap   []QueueElement
+	Minmax int // whether this is a min-pq or max-pq
 }
 
 func New(minmax string) *Pq {
@@ -21,7 +21,7 @@ func New(minmax string) *Pq {
 }
 
 func (p *Pq) Length() int {
-	return len(p.heap)
+	return len(p.Heap)
 }
 
 func (p *Pq) Push(priority int, value interface{}) {
