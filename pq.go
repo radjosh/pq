@@ -32,7 +32,7 @@ func (p *Pq) Push(priority int, value interface{}) {
 
 func (p *Pq) Pull() QueueElement {
 	if len(p.Heap) == 0 {
-		return nil
+		return QueueElement{}
 	}
 	root := p.Heap[0]
 	p.Heap[0] = p.Heap[len(p.Heap)-1]
